@@ -2,75 +2,80 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-
-
+#include <dt-bindings/zmk/rgb.h>
 
 / {
+	ZMK_MACRO(rgb_to_l0, wait-ms = <0>; tap-ms = <0>; bindings = <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,0)>, <&macro_tap &to 0>;)
+	ZMK_MACRO(rgb_to_l1, wait-ms = <0>; tap-ms = <0>; bindings = <&macro_tap &rgb_ug RGB_COLOR_HSB(235,82,30)>, <&macro_tap &to 1>;)
+	ZMK_MACRO(rgb_to_l2, wait-ms = <0>; tap-ms = <0>; bindings = <&macro_tap &rgb_ug RGB_COLOR_HSB(273,82,30)>, <&macro_tap &to 2>;)
+	ZMK_MACRO(rgb_to_l3, wait-ms = <0>; tap-ms = <0>; bindings = <&macro_tap &rgb_ug RGB_COLOR_HSB(93,82,30)>, <&macro_tap &to 3>;)
+	ZMK_MACRO(rgb_to_l4, wait-ms = <0>; tap-ms = <0>; bindings = <&macro_tap &rgb_ug RGB_COLOR_HSB(183,82,30)>, <&macro_tap &to 4>;)
+
 	keymap {
 		compatible = "zmk,keymap";
 		layer_0 {
 			bindings = <
 				&bootloader
-				&kp EQUAL  &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4 &kp NUMBER_5 &kp ESC  &kp ESC  &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0 &kp MINUS
-				&kp TAB    &kp Q        &kp W        &kp F        &kp P        &kp G        &kp CLCK &kp LBKT &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp RBKT
-				&kp LCTRL  &kp A        &kp R        &kp S        &kp T        &kp D                          &kp H        &kp N        &kp E        &kp I        &kp O        &kp QUOT
-				&kp LSHIFT &kp Z        &kp X        &kp C        &kp V        &kp B        &mo 1    &mo 1    &kp K        &kp M        &kp CMMA     &kp DOT      &kp FSLH     &kp RSHIFT
-				&kp LGUI   &kp GRAVE    &kp BSLH     &kp CAPS     &kp LALT                                                 &kp LARW     &kp DARW     &kp UARW     &kp RARW     &kp RCTRL
-				                                                               &kp HOME     &kp END  &kp HOME &kp END
-				                                                  &kp BSPC     &kp DEL      &to 1    &kp PGUP &kp ENTER    &kp SPACE
-				                                                                            &to 4    &kp PGDN
+				&kp EQUAL  &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4 &kp NUMBER_5 &kp ESC  		&kp ESC  &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0 &kp MINUS
+				&kp TAB    &kp Q        &kp W        &kp F        &kp P        &kp G        &kp CLCK 		&kp LBKT &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &kp RBKT
+				&kp LCTRL  &kp A        &kp R        &kp S        &kp T        &kp D                 		         &kp H        &kp N        &kp E        &kp I        &kp O        &kp QUOT
+				&kp LSHIFT &kp Z        &kp X        &kp C        &kp V        &kp B        &mo 1    		&mo 1    &kp K        &kp M        &kp CMMA     &kp DOT      &kp FSLH     &kp RSHIFT
+				&kp LGUI   &kp GRAVE    &kp BSLH     &kp CAPS     &kp LALT                           		                      &kp LARW     &kp DARW     &kp UARW     &kp RARW     &kp RCTRL
+				                                                               &kp HOME     &kp END  		&kp HOME &kp END
+				                                                  &kp BSPC     &kp DEL      &rgb_to_l1    	&kp PGUP &kp ENTER    &kp SPACE
+				                                                                            &rgb_to_l4    	&kp PGDN
 			>;
 		};
 		layer_1 {
 			bindings = <
 				&bootloader
-				&kp F12 &kp F1       &kp F2     &kp F3       &kp F4 &kp F5 &none &none &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
-				&none   &kp C_PREV   &kp C_PP   &kp C_NEXT   &none  &none  &none &none &none  &none  &none  &none  &none   &none
-				&none   &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &none  &none              &none  &none  &none  &none  &none   &none
-				&none   &none        &none      &none        &none  &none  &none &none &none  &none  &none  &none  &none   &none
-				&none   &none        &none      &none        &none                            &none  &none  &none  &none   &none
-				                                                    &none  &none &none &none
-				                                             &none  &none  &to 2 &none &none  &none
-				                                                           &to 0 &none
+				&kp F12 &kp F1       &kp F2     &kp F3       &kp F4 &kp F5 &none 		&none &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
+				&none   &kp C_PREV   &kp C_PP   &kp C_NEXT   &none  &none  &none 		&none &none  &none  &none  &none  &none   &none
+				&none   &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &none  &none        		      &none  &none  &none  &none  &none   &none
+				&none   &none        &none      &none        &none  &none  &none 		&none &none  &none  &none  &none  &none   &none
+				&none   &none        &none      &none        &none               		             &none  &none  &none  &none   &none
+				                                                    &none  &none 		&none &none
+				                                             &none  &none  &rgb_to_l2 	&none &none  &none
+				                                                           &rgb_to_l0 	&none
 			>;
 		};
 		layer_2 {
 			bindings = <
 				&bootloader
-				&none   &none     &none        &none     &none    &none &none                &none                &none   &none        &none        &none        &none        &none
-				&kp TAB &none     &none        &none     &none    &none &none                &none                &none   &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &none        &none
-				&none   &kp SLASH &kp ASTERISK &kp MINUS &kp PLUS &none                                           &none   &kp NUMBER_4 &kp NUMBER_5 &kp NUMBER_6 &kp NUMBER_0 &kp BKSP
-				&none   &none     &none        &none     &kp DOT  &none &kp C_BRIGHTNESS_DEC &kp C_BRIGHTNESS_INC &none   &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &none        &none
-				&none   &none     &none        &kp LARW  &kp UARW                                                         &kp DARW     &kp RARW     &none        &none        &to 0
-				                                                  &none &none                &none                &none
-				                                         &none    &none &to 3                &none                &kp SPC &none
-				                                                        &to 1                &none
+				&none   &none     &none        &none     &none    &none &none                		&none                &none   &none        &none        &none        &none        &none
+				&kp TAB &none     &none        &none     &none    &none &none                		&none                &none   &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &none        &none
+				&none   &kp SLASH &kp ASTERISK &kp MINUS &kp PLUS &none                      		                     &none   &kp NUMBER_4 &kp NUMBER_5 &kp NUMBER_6 &kp NUMBER_0 &kp BKSP
+				&none   &none     &none        &none     &kp DOT  &none &kp C_BRIGHTNESS_DEC 		&kp C_BRIGHTNESS_INC &none   &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &none        &none
+				&none   &none     &none        &kp LARW  &kp UARW                            		                             &kp DARW     &kp RARW     &none        &none        &to 0
+				                                                  &none &none                		&none                &none
+				                                         &none    &none &rgb_to_l3                	&none                &kp SPC &none
+				                                                        &rgb_to_l1                	&none
 			>;
 		};
 		layer_3 {
 			bindings = <
 				&bootloader
-				&bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none &none &none &none &none   &none   &none   &none   &bootloader
-				&out OUT_USB &kp F1       &kp F2       &kp F3       &kp F4       &none &none &none &none &kp F13 &kp F14 &kp F15 &kp F16 &none
-				&out OUT_BLE &kp F5       &kp F6       &kp F7       &kp F8       &none             &none &kp F17 &kp F18 &kp F19 &kp F20 &none
-				&none        &kp F9       &kp F10      &kp F11      &kp F12      &none &none &none &none &kp F21 &kp F22 &kp F23 &kp F24 &bt BT_CLR
-				&none        &none        &none        &none        &none                                &none   &none   &none   &none   &none
-				                                                                 &none &none &none &none
-				                                                    &none        &none &to 4 &none &none &none
-				                                                                       &to 2 &none
+				&bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none &none 		&none &none &none   &none   &none   &none   	&bootloader
+				&out OUT_USB &kp F1       &kp F2       &kp F3       &kp F4       &none &none 		&none &none &kp F13 &kp F14 &kp F15 &kp F16 	&rgb_ug RGB_COLOR_HSB(0,100,50)
+				&out OUT_BLE &kp F5       &kp F6       &kp F7       &kp F8       &none       		      &none &kp F17 &kp F18 &kp F19 &kp F20 	&rgb_ug RGB_COLOR_HSB(120,100,50)
+				&none        &kp F9       &kp F10      &kp F11      &kp F12      &none &none 		&none &none &kp F21 &kp F22 &kp F23 &kp F24 	&rgb_ug RGB_COLOR_HSB(240,100,50)
+				&none        &none        &none        &none        &none                    		            &none   &none   &none   &bt BT_CLR &rgb_ug RGB_COLOR_HSB(0,0,0)
+				                                                                 &none &none 		&none &none
+				                                                    &none        &none &rgb_to_l4 	&none &none &none
+				                                                                       &rgb_to_l2 	&none
 			>;
 		};
 		layer_4 {
 			bindings = <
 				&bootloader
-				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans   &trans  &trans   &trans
-				&trans &kp Q  &kp W  &kp E  &kp R  &kp T  &trans &trans &kp Y  &kp U  &kp I    &kp O   &kp P    &trans
-				&trans &kp A  &kp S  &kp D  &kp F  &kp G                &kp H  &kp J  &kp K    &kp L   &kp SEMI &trans
-				&trans &kp Z  &kp X  &kp C  &kp V  &kp B  &trans &trans &kp N  &kp M  &kp CMMA &kp DOT &kp FSLH &trans
-				&trans &trans &trans &trans &trans                             &trans &trans   &trans  &trans   &trans
-				                                   &trans &trans &trans &trans
-				                            &trans &trans &none  &trans &trans &trans
-				                                          &to 0  &trans
+				&trans &trans &trans &trans &trans &trans &trans 		&trans &trans &trans &trans   &trans  &trans   &trans
+				&trans &kp Q  &kp W  &kp E  &kp R  &kp T  &trans 		&trans &kp Y  &kp U  &kp I    &kp O   &kp P    &trans
+				&trans &kp A  &kp S  &kp D  &kp F  &kp G         		       &kp H  &kp J  &kp K    &kp L   &kp SEMI &trans
+				&trans &kp Z  &kp X  &kp C  &kp V  &kp B  &trans 		&trans &kp N  &kp M  &kp CMMA &kp DOT &kp FSLH &trans
+				&trans &trans &trans &trans &trans               		              &trans &trans   &trans  &trans   &trans
+				                                   &trans &trans 		&trans &trans
+				                            &trans &trans &none  		&trans &trans &trans
+				                                          &rgb_to_l0  	&trans
 			>;
 		};
 	};
