@@ -1,10 +1,10 @@
 manifest:
   remotes:
-    - name: xudongzheng
-      url-base: https://github.com/xudongzheng
+    - name: djak250
+      url-base: https://github.com/djak250
   projects:
     - name: zmk
-      remote: xudongzheng
+      remote: djak250
       revision: v20240802-rgb
       import: app/west.yml
   self:
