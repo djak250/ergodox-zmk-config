@@ -74,7 +74,7 @@
 				&trans &kp Z  &kp X  &kp C  &kp V  &kp B  &trans 		&trans &kp N  &kp M  &kp CMMA &kp DOT &kp FSLH &trans
 				&trans &trans &trans &trans &trans               		              &trans &trans   &trans  &trans   &trans
 				                                   &trans &trans 		&trans &trans
-				                            &trans &trans &none  		&trans &trans &trans
+				                            &kp SPACE &kp BSPC &none  		&trans &trans &trans
 				                                          &rgb_to_l0  	&trans
 			>;
 		};
