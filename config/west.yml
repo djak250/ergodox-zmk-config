@@ -5,7 +5,7 @@ manifest:
   projects:
     - name: zmk
       remote: djak250
-      revision: v20240802-rgb
+      revision: v20250120-rgb
       import: app/west.yml
   self:
     path: config
